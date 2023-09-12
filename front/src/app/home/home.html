@@ -1,0 +1,13 @@
+<section>
+    <form>
+      <h2>Usuários</h2>
+      <input type="text" placeholder="Nome do usuário" [(ngModel)]="this.name" name="first">
+      <button class="primary" type="button" (click)="adicionarUsuario() ">Adicionar</button>
+    </form>
+    <div *ngFor="let usuario of usuarios" class="usuario-itens">
+      <p class="usuarios">{{usuario.nome}}</p>
+      <button class="edit-icon" (click)="editarUsuario()">
+        <i class="fas fa-edit"></i>
+      </button>
+    </div>
+  </section>
