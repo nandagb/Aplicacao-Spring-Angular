@@ -30,8 +30,8 @@ public class UsuarioController {
 
     @DeleteMapping("/usuarios")
     @CrossOrigin(origins = "*") // Permite todas as origens
-    public Usuario removeUsuario(@RequestBody Usuario usuario) {
-        return UsuarioRepository.removeUsuario(usuario);
+    public Usuario removeUsuario(@RequestParam("nome") String nome) {
+        return UsuarioRepository.removeUsuario(nome);
     }
 
 }

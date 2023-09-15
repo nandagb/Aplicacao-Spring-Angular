@@ -5,9 +5,14 @@
       <button class="primary" type="button" (click)="adicionarUsuario() ">Adicionar</button>
     </form>
     <div *ngFor="let usuario of usuarios" class="usuario-itens">
-      <p class="usuarios">{{usuario.nome}}</p>
+      <div id="{{this.name}}">
+        <p class="usuarios">{{usuario.nome}}</p>
       <button class="edit-icon" (click)="editarUsuario()">
         <i class="fas fa-edit"></i>
       </button>
+      <button class="delete-icon" (click)="deleteUsuario(usuario)">
+        <i class="fas fa-trash"></i>
+      </button>
+      </div>
     </div>
   </section>

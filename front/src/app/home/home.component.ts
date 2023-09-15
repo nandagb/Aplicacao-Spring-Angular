@@ -26,10 +26,25 @@ export class HomeComponent implements OnInit {
     
   }
 
+  deleteUsuario(usuario: any){    
+    
+    this.http.delete(`http://localhost:8080/usuarios?nome=${usuario.nome}`).subscribe(
+      (response) => {
+        console.log("response: " + JSON.stringify(response));
+        this.getUsuarios();
+      },
+      (error) => {
+        console.log("error: " + JSON.stringify(error));
+      }
+    )
+  }
+  
+
   getUsuarios(){
     this.http.get('http://localhost:8080/usuarios').subscribe(
       (response) => {
         console.log("response: " + JSON.stringify(response));
+        this.usuarios = [];
         for(const usuario of response as any[]){
           this.usuarios.push(usuario);
         }

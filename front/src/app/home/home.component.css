@@ -56,14 +56,16 @@
     display: flex;
   }
 
-  .edit-icon{
+  .edit-icon, .delete-icon{
     border: 2px;
     padding: 10px;
     border-radius: 5px;
-    width: 100px;
+    width: 50px;
     margin-top: 10px; 
     margin-bottom: 10px; 
     color: darkblue;
   }
+
+
 
   
