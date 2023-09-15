@@ -23,7 +23,7 @@ public class UsuarioRepository {
 
     public static Usuario editUsuario(String nome_velho, String nome_novo) {
         for(Usuario usuario: usuarios){
-            if(usuario.getNome() == nome_velho){
+            if(usuario.getNome().equals(nome_velho)){
                 usuario.setNome(nome_novo);
                 return usuario;
             }

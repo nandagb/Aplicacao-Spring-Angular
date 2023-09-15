@@ -5,6 +5,7 @@ import br.com.imd.api1web2.api1.repositories.UsuarioRepository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 
 @RestController
@@ -22,9 +23,11 @@ public class UsuarioController {
         return UsuarioRepository.addUsuario(nome);
     }
 
-    @PostMapping("/editar_suarios")
+    @PostMapping("/editar_usuarios")
     @CrossOrigin(origins = "*") // Permite todas as origens
-    public Usuario editUsuario(@RequestBody String nome_velho, String nome_novo) {
+    public Usuario editUsuario(@RequestBody Map<String, String> dados) {
+        String nome_velho = dados.get("nome_velho");
+        String nome_novo = dados.get("nome_novo");
         return UsuarioRepository.editUsuario(nome_velho, nome_novo);
     }
 

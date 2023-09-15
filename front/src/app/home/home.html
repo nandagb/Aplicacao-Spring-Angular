@@ -5,9 +5,13 @@
       <button class="primary" type="button" (click)="adicionarUsuario() ">Adicionar</button>
     </form>
     <div *ngFor="let usuario of usuarios" class="usuario-itens">
-      <div id="{{this.name}}">
-        <p class="usuarios">{{usuario.nome}}</p>
-      <button class="edit-icon" (click)="editarUsuario()">
+      <div class="usuarios" [id]="usuario.nome">
+        <p *ngIf="!estaEditando(usuario.nome)">{{usuario.nome}}</p>
+        <form class="edit-form" *ngIf="estaEditando(usuario.nome)" (submit)="salvarEdicao(this.editingName)">
+          <input type="text" [(ngModel)]="this.editingName" name="first">
+          <button type="submit">Salvar</button>
+        </form>
+      <button class="edit-icon" (click)="editarUsuario(usuario.nome)">
         <i class="fas fa-edit"></i>
       </button>
       <button class="delete-icon" (click)="deleteUsuario(usuario)">
